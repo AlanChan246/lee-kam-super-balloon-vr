@@ -6,14 +6,15 @@
     <meta name="theme-color" content="#6132b9">
     <meta name="description" content="順德聯誼總會李金小學的 SUPER 氣球大挑戰。射爆氣球，集齊 S、U、P、E、R！">
     <title>李金SUPER氣球大挑戰</title>
-    <script type="module" crossorigin src="./assets/index-QuSIQh3T.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-v1FuyxO_.css">
+    <script type="module" crossorigin src="./assets/index-BqHrwQCu.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BGqaLXED.css">
   </head>
   <body data-phase="menu">
     <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0">
       <symbol id="i-clock" viewBox="0 0 24 24"><path d="M9 2h6m-3 0v3m6.1 2.5L20 5.6M12 9v4l-2 2"/><circle cx="12" cy="14" r="8"/></symbol>
       <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2.8 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9Z"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4.7a1.4 1.4 0 0 1 2.2-1.2l12 7.3a1.4 1.4 0 0 1 0 2.4l-12 7.3A1.4 1.4 0 0 1 6 19.3Z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1.4" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" rx="1.4" fill="currentColor" stroke="none"/></symbol>
       <symbol id="i-pad" viewBox="0 0 24 24"><path d="M7.7 7h8.6c3 0 4.3 2 5.1 5.1.8 3.1.6 5.3-1.5 5.8-2 .5-3.1-2.9-5.4-2.9h-5c-2.3 0-3.4 3.4-5.4 2.9-2.1-.5-2.3-2.7-1.5-5.8C3.4 9 4.7 7 7.7 7ZM5.9 11.6h4.4m-2.2-2.2v4.4m7.1-2.1h.01m2.6-1.6h.01"/></symbol>
       <symbol id="i-balloon" viewBox="0 0 24 24"><path d="M18.8 9.8c0 4.6-3.3 8.2-6.8 8.2s-6.8-3.6-6.8-8.2a6.8 6.8 0 1 1 13.6 0ZM12 18l-1.2 2h2.4Zm.1 2.1c.9.7.7 1.5-.5 2.4M8 9.1a4.2 4.2 0 0 1 2.2-3.4"/></symbol>
       <symbol id="i-target" viewBox="0 0 24 24"><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/><circle cx="12" cy="12" r="7"/></symbol>
@@ -85,8 +86,23 @@
           <strong id="score">0</strong>
         </div>
       </section>
+      <button id="pause" class="pause-button arcade-button" type="button" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>暫停</span>
+      </button>
       <div id="bonus" class="bonus" aria-live="polite" hidden>SUPER BONUS <span>+10</span></div>
       <div id="aim-cursor" class="aim-cursor" aria-hidden="true" hidden><svg class="icon"><use href="#i-target"/></svg></div>
+
+      <section id="pause-screen" class="pause-screen" role="dialog" aria-modal="true" aria-labelledby="pause-title" hidden>
+        <div class="pause-panel">
+          <h2 id="pause-title">遊戲暫停</h2>
+          <p>尚餘 <strong id="pause-time">30</strong> 秒</p>
+          <div class="pause-actions">
+            <button id="resume" class="arcade-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>繼續遊戲</button>
+            <button id="restart" class="arcade-button secondary-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-replay"/></svg>重新開始</button>
+            <button id="pause-home" class="arcade-button secondary-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg>返回主畫面</button>
+          </div>
+        </div>
+      </section>
 
       <section id="results" class="results-screen" aria-labelledby="result-heading" hidden>
         <div id="confetti" class="confetti" aria-hidden="true"></div>
@@ -104,7 +120,7 @@
             <section class="leaderboard" aria-labelledby="leaderboard-title">
               <h3 id="leaderboard-title">排行榜 <small>頭 5 名</small></h3>
               <table id="leaderboard-table" aria-labelledby="leaderboard-title" hidden>
-                <thead><tr><th scope="col">名次</th><th scope="col">局號</th><th scope="col">分數</th></tr></thead>
+                <thead><tr><th scope="col">名次</th><th scope="col">挑戰者</th><th scope="col">分數</th></tr></thead>
                 <tbody id="leaderboard-rows"></tbody>
               </table>
               <p id="leaderboard-empty" class="leaderboard-empty">等待成績</p>
