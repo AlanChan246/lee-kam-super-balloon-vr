@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#6132b9">
     <meta name="description" content="順德聯誼總會李金小學的 SUPER 氣球大挑戰。射爆氣球，集齊 S、U、P、E、R！">
     <title>李金SUPER氣球大挑戰</title>
-    <script type="module" crossorigin src="./assets/index--TfyG_TC.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DdgcKwBw.css">
+    <script type="module" crossorigin src="./assets/index-QuSIQh3T.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-v1FuyxO_.css">
   </head>
   <body data-phase="menu">
     <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0">
@@ -94,10 +94,21 @@
           <div class="trophy-wrap" aria-hidden="true"><img src="./ui/champion-trophy.webp" alt=""></div>
           <div class="result-card">
             <h2 id="result-heading" class="result-ribbon" tabindex="-1"><span>挑戰完成！</span></h2>
-            <p class="result-caption">你的分數</p>
-            <div class="result-score"><svg class="icon icon-star" aria-hidden="true"><use href="#i-star"/></svg><output id="final-score">0</output></div>
-            <div class="result-collection"><span>收集字母</span><div id="final-collection" class="word-row" data-word></div></div>
-            <p class="result-details"><span>射爆 <b id="final-pops">0</b> 個氣球</span><span>SUPER BONUS × <b id="final-bonuses">0</b></span></p>
+            <div class="result-summary">
+              <p class="result-caption">你的分數</p>
+              <div class="result-score"><svg class="icon icon-star" aria-hidden="true"><use href="#i-star"/></svg><output id="final-score">0</output></div>
+              <p id="result-ranking" class="result-ranking" role="status"></p>
+              <div class="result-collection"><span>收集字母</span><div id="final-collection" class="word-row" data-word></div></div>
+              <p class="result-details"><span>射爆 <b id="final-pops">0</b> 個氣球</span><span>SUPER BONUS × <b id="final-bonuses">0</b></span></p>
+            </div>
+            <section class="leaderboard" aria-labelledby="leaderboard-title">
+              <h3 id="leaderboard-title">排行榜 <small>頭 5 名</small></h3>
+              <table id="leaderboard-table" aria-labelledby="leaderboard-title" hidden>
+                <thead><tr><th scope="col">名次</th><th scope="col">局號</th><th scope="col">分數</th></tr></thead>
+                <tbody id="leaderboard-rows"></tbody>
+              </table>
+              <p id="leaderboard-empty" class="leaderboard-empty">等待成績</p>
+            </section>
           </div>
           <div class="result-actions">
             <button id="replay" class="arcade-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-replay"/></svg>再玩一次</button>
